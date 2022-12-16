@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css.css">
+</head>
+<body>
+    <div id="DIV_1">
+        <div id="DIV_2">
+            <table id="TABLE_3">
+                <tbody id="TBODY_4">
+                    <tr id="TR_5">
+                        <td id="TD_6">
+                            <div id="DIV_7">
+                                <table id="TABLE_8">
+                                    <tbody id="TBODY_9">
+                                        <tr id="TR_10">
+                                            <td id="TD_11">
+                                                <script type="text/javascript" id="SCRIPT_12">function changeLanguage_click(obj) {
+            EduSoft.Web.UC.Logout.ChangeLanguage(obj, changeLanguage_callback);
+        }
+        function changeLanguage_callback() {
+            var loc = window.location.href;
+            if (loc.endsWith("/")) loc = loc.substr(0, loc.length - 1);
+            if (loc.toLowerCase().indexOf("default.aspx") <= 0)
+                self.location = loc + "/default.aspx?pgtemp=x";
+            else if (loc.toLowerCase().indexOf("?") <= 0)
+                self.location = loc + "?lang=x";
+            else if (loc.endsWith("&lang=x"))
+                self.location = loc.replace("&lang=x", "&lang=y");
+            else if (loc.endsWith("&lang=y"))
+                self.location = loc.replace("&lang=y", "&lang=x");
+            else
+                self.location = loc + "&lang=x";
+        }
+        function selectFont_change() {
+            var selectmenu = document.getElementById("selectFont");
+            var chosenOption = selectmenu.options[selectmenu.selectedIndex];
+            var font = chosenOption.value;
+            EduSoft.Web.UC.Logout.ChangeFont(font, ChangeFont_callback);
+        }
+        function ChangeFont_callback() {
+            //self.location=window.location;
+        }
+    
+        function ConfirmChuaLuu(obj) {
+    
+            alert(obj);
+            self.location = "default.aspx?page=dkmonhoc";
+        }
+    
+        function ToChangePass() {
+            return confirm('Khi cập nhập mật khẩu bạn phải đăng nhập lại. Xin lỗi vì sự bất tiện này!')
+        }
+        function loadrun() {
+         var ba= document.getElementById("ctl00_Header1_Logout1_lblNguoiDung").innerText;
+         var n = ba.indexOf("(");
+         var res = ba.substr(n);
+         var giatridau=res.substr(1,2);	 
+         if(giatridau!=""){
+              if(!isNaN(giatridau))
+              { 
+               document.getElementById("sinhviendoimatkhau").style.display = "block";
+              } else 
+              {
+               document.getElementById("admindoimatkhau").style.display = "block";
+              }
+            }
+            else
+            {
+                document.getElementById("admindoimatkhau").style.display = "block";
+            }
+        }
+        $( document ).ready(function() {
+            loadrun();
+        });
+    
+        function signOutGoogle(dest) {
+            var url = 'https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue='
+                + decodeURIComponent(dest) + 'page=gioithieu';
+            document.location.href = url;
+            
+            //gapi.load('auth2', function () {
+            //    gapi.auth2.init();
+            //    var auth = gapi.auth2.GoogleAuth;
+            //    auth.signOut().then(function () {
+            //        location = decodeURIComponent(dest) + 'page=gioithieu';
+            //    });
+            //});
+        }
+                                                </script>
+                                                <div id="DIV_13">
+                                                        <img src="http://daotao.hutech.edu.vn/App_Themes/Standard/Images/US.gif" alt="English" id="IMG_14" /><img src="http://daotao.hutech.edu.vn/App_Themes/Standard/Images/VI.gif" alt="Vietnamese" id="IMG_15" /> <span id="SPAN_16">Chào bạn Phạm Yến Thành (1911060259)</span> <a id="A_17" href="javascript:__doPostBack('ctl00$Header1$Logout1$lbtnThongBao','')">Xem thông báo</a> <span id="SPAN_18">|</span>
+                                                        <div id="DIV_19">
+                                                             <a id="A_20" href="javascript:__doPostBack('ctl00$Header1$Logout1$lbtnChangePass','')">Thay đổi mật khẩu</a>
+                                                        </div>
+                                                        <div id="DIV_21">
+                                                             <a href="http://sinhvien.hutech.edu.vn/#/sinhvien/thong-tin-ca-nhan/doi-mat-khau" id="A_22">Thay Đổi Mật Khẩu</a>
+                                                        </div> <span id="SPAN_23">|</span> <a id="A_24" href="javascript:__doPostBack('ctl00$Header1$Logout1$lbtnLogOut','')">Thoát</a> 
+                                                        <select id="SELECT_25">
+                                                             
+                                                            <option value="uni" id="OPTION_26">
+                                                                -------Font-------
+                                                            </option> 
+                                                            <option value="uni" id="OPTION_27">
+                                                                Font Unicode
+                                                            </option> 
+                                                            <option value="abc" id="OPTION_28">
+                                                                Font ABC
+                                                            </option> 
+                                                            <option value="vni" id="OPTION_29">
+                                                                Font Vni
+                                                            </option> 
+                                                            <option value="not" id="OPTION_30">
+                                                                Text không dấu
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <style type="text/css" id="STYLE_31">.styleApplication {
+            font-size: 26;
+            font-weight: bold;
+        }
+    
+        @font-face {
+            font-family: 'myriadpro';
+            src: url('js/myriadpro-bold.otf');
+        }
+    
+        .menufontdhxd {
+            font-family: 'myriadpro';
+            font-size: 14px;
+        }
+                                </style>
+                            <script id="SCRIPT_32">!function(s,u,b,i,z){var o,t,r,y;s[i]||(s._sbzaccid=z,s[i]=function(){s[i].q.push(arguments)},s[i].q=[],s[i]("setAccount",z),r=["widget.subiz.net","storage.googleapis"+(t=".com"),"app.sbz.workers.dev",i+"a"+(o=function(k,t){var n=t<=6?5:o(k,t-1)+o(k,t-3);return k!==t?n:n.toString(32)})(20,20)+t,i+"b"+o(30,30)+t,i+"c"+o(40,40)+t],(y=function(k){var t,n;s._subiz_init_2094850928430||r[k]&&(t=u.createElement(b),n=u.getElementsByTagName(b)[0],t.async=1,t.src="https://"+r[k]+"/sbz/app.js?accid="+z,n.parentNode.insertBefore(t,n),setTimeout(y,2e3,k+1))})(0))}(window,document,"script","subiz", "acraylnfyucfvizmgwxk")
+                                    </script>
+                            <div id="DIV_33">
+                                            <div id="DIV_34">
+                                                <div id="DIV_35">
+                                                    <div id="DIV_36">
+                                                        <div id="DIV_37">
+                                                        </div>
+                                                        <div id="DIV_38">
+                                                             <a href="http://daotao.hutech.edu.vn/Default.aspx?page=gioithieu" id="A_39"> <span id="SPAN_40">TRANG CHỦ</span></a>
+                                                        </div>
+                                                        <div id="DIV_41">
+                                                        </div>
+                                                    </div>
+                                                    <div id="DIV_42">
+                                                        <div id="DIV_43">
+                                                        </div>
+                                                        <div id="DIV_44">
+                                                             <a href="http://daotao.hutech.edu.vn/Default.aspx?page=dkmonhoc" id="A_45"> <span id="SPAN_46">ĐĂNG KÝ MÔN HỌC</span></a>
+                                                        </div>
+                                                        <div id="DIV_47">
+                                                        </div>
+                                                    </div>
+                                                    <div id="DIV_48">
+                                                        <div id="DIV_49">
+                                                        </div>
+                                                        <div id="DIV_50">
+                                                             <a href="http://daotao.hutech.edu.vn/Default.aspx?page=thoikhoabieu" id="A_51"> <span id="SPAN_52">XEM TKB</span></a>
+                                                        </div>
+                                                        <div id="DIV_53">
+                                                        </div>
+                                                    </div>
+                                                    <div id="DIV_54">
+                                                        <div id="DIV_55">
+                                                        </div>
+                                                        <div id="DIV_56">
+                                                             <a href="http://daotao.hutech.edu.vn/Default.aspx?page=xemlichthi" id="A_57"> <span id="SPAN_58">XEM LỊCH THI</span></a>
+                                                        </div>
+                                                        <div id="DIV_59">
+                                                        </div>
+                                                    </div>
+                                                    <div id="DIV_60">
+                                                        <div id="DIV_61">
+                                                        </div>
+                                                        <div id="DIV_62">
+                                                             <a href="http://daotao.hutech.edu.vn/Default.aspx?page=xemhocphi" id="A_63"> <span id="SPAN_64">XEM HỌC PHÍ</span></a>
+                                                        </div>
+                                                        <div id="DIV_65">
+                                                        </div>
+                                                    </div>
+                                                    <div id="DIV_66">
+                                                        <div id="DIV_67">
+                                                        </div>
+                                                        <div id="DIV_68">
+                                                             <a href="http://daotao.hutech.edu.vn/Default.aspx?page=xemdiemthi" id="A_69"> <span id="SPAN_70">XEM ĐIỂM</span></a>
+                                                        </div>
+                                                        <div id="DIV_71">
+                                                        </div>
+                                                    </div>
+                                                    <div id="DIV_72">
+                                                        <div id="DIV_73">
+                                                        </div>
+                                                        <div id="DIV_74">
+                                                             <a href="http://daotao.hutech.edu.vn/Default.aspx?page=xemmontienquyet" id="A_75"> <span id="SPAN_76">XEM MÔN TQ</span></a>
+                                                        </div>
+                                                        <div id="DIV_77">
+                                                        </div>
+                                                    </div>
+                                                    <div id="DIV_78">
+                                                        <div id="DIV_79">
+                                                        </div>
+                                                        <div id="DIV_80">
+                                                             <a href="http://daotao.hutech.edu.vn/Default.aspx?page=thaydoittcn" id="A_81"> <span id="SPAN_82">SỬA TT CÁ NHÂN</span></a>
+                                                        </div>
+                                                        <div id="DIV_83">
+                                                        </div>
+                                                    </div>
+                                                    <div id="DIV_84">
+                                                        <div id="DIV_85">
+                                                        </div>
+                                                        <div id="DIV_86">
+                                                             <a href="http://daotao.hutech.edu.vn/Default.aspx?page=ykiensinhvien" id="A_87"> <span id="SPAN_88">GÓP Ý KIẾN</span></a>
+                                                        </div>
+                                                        <div id="DIV_89">
+                                                        </div>
+                                                    </div>
+                                                    <div id="DIV_90">
+                                                        <div id="DIV_91">
+                                                        </div>
+                                                        <div id="DIV_92">
+                                                             <a href="http://daotao.hutech.edu.vn/Default.aspx?page=xettientotnghiep&amp;type=totnghiep" id="A_93"> <span id="SPAN_94">KQ XÉT TỐT NGHIỆP</span></a>
+                                                        </div>
+                                                        <div id="DIV_95">
+                                                        </div>
+                                                    </div>
+                                                    <div id="DIV_96">
+                                                        <div id="DIV_97">
+                                                        </div>
+                                                        <div id="DIV_98">
+                                                             <a href="http://daotao.hutech.edu.vn/Default.aspx?page=xettientotnghiep" id="A_99"> <span id="SPAN_100">KQ XÉT TIỀN TỐT NGHIỆP</span></a>
+                                                        </div>
+                                                        <div id="DIV_101">
+                                                        </div>
+                                                    </div>
+                                                    <div id="DIV_102">
+                                                        <div id="DIV_103">
+                                                        </div>
+                                                        <div id="DIV_104">
+                                                             <a href="http://daotao.hutech.edu.vn/Default.aspx?page=thongtinchungchi" id="A_105"> <span id="SPAN_106">NỘP CHỨNG CHỈ</span></a>
+                                                        </div>
+                                                        <div id="DIV_107">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                        </td>
+                    </tr>
+                    <tr id="TR_108">
+                                    <td id="TD_109">
+                                        <style type="text/css" id="STYLE_110">.style2 {
+            width: 300px;
+        }
+    
+        .style4 {
+            width: 149px;
+        }
+    
+        .auto-style1 {
+            width: 300px;
+            margin-left: 40px;
+        }
+        div#ctl00_ContentPlaceHolder1_ctl00_pnlInHP {
+            display: none;
+        }
+                                        </style>
+                                        <script type="text/javascript" id="SCRIPT_111">//<![CDATA[
+    Sys.WebForms.PageRequestManager._initialize('ctl00$ContentPlaceHolder1$ctl00$ScriptManager1', document.getElementById('aspnetForm'));
+    Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+    //]]>
+                                            </script> <span id="SPAN_112"><a id="A_113" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$ctl00$MessageBox1$lbTarget','')"></a></span>
+                                        <div id="DIV_114">
+                                                    <div id="DIV_115">
+                                                        <div id="DIV_116">
+                                                            <span id="SPAN_117"></span>
+                                                        </div>
+                                                        <input type="image" name="ctl00$ContentPlaceHolder1$ctl00$MessageBox1$imgCloseButton" id="INPUT_118" src="http://daotao.hutech.edu.vn/WebResource.axd?d=34EwTW4V4FpQibW9YSE4x9ryUxhcQdLEF8y124vXvQtXCqLfDIzNqecFTms17Pi6Og1hSB1mrBCllnofz2vX5DYWnmu6cjtFPGzbgY3cu_PI9UYiym6tXdgF0tEXOl3_uMSNnOJB3Kj50bwAVkmBeV3Mr4vKy3bnUw_py-VJHPId58Uw0&amp;t=638028924040000000" />
+                                                    </div>
+                                                    <div id="DIV_119">
+                                                        <div id="DIV_120">
+                                                            <img id="IMG_121" src="http://daotao.hutech.edu.vn/Default.aspx?page=xemhocphi" alt='' />
+                                                        </div>
+                                                        <div id="DIV_122">
+                                                            <span id="SPAN_123"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div id="DIV_124">
+                                                        <div id="DIV_125">
+                                                            <input type="image" name="ctl00$ContentPlaceHolder1$ctl00$MessageBox1$btnOk" id="INPUT_126" src="http://daotao.hutech.edu.vn/WebResource.axd?d=AphXdMW894bxBCO3bogQSgDWC_OhQsNXkeA2GOX_49fE1RA9FmE3llWDqiyEK2_XfppZVY2qJJJfXHV4mRUCnq5F5Czj73BVBBrauXD8ZezIFyNmaZw5w5wOmx0GXGSU7foA2j9Cjv9Pg0rv9mcXIw_gToZ7G3pOb7MPUFZTKrWWMF5H0&amp;t=638028924040000000" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        <div id="DIV_127">
+                                                </div>
+                                        <div id="DIV_128">
+                                                    <div id="DIV_129">
+                                                    </div>
+                                                    <div id="DIV_130">
+                                                        <table id="TABLE_131">
+                                                            <tbody id="TBODY_132">
+                                                                <tr id="TR_133">
+                                                                    <td id="TD_134">
+                                                                         <span id="SPAN_135">Mã sinh viên</span>
+                                                                    </td>
+                                                                    <td id="TD_136">
+                                                                         <span id="SPAN_137">1911060259</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="TR_138">
+                                                                    <td id="TD_139">
+                                                                         <span id="SPAN_140">Tên sinh viên</span>
+                                                                    </td>
+                                                                    <td id="TD_141">
+                                                                         <span id="SPAN_142">Phạm Yến Thành</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="TR_143">
+                                                                    <td id="TD_144">
+                                                                         <span id="SPAN_145">Phái</span>
+                                                                    </td>
+                                                                    <td id="TD_146">
+                                                                         <span id="SPAN_147">Nam</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="TR_148">
+                                                                    <td id="TD_149">
+                                                                         <span id="SPAN_150">Nơi sinh</span>
+                                                                    </td>
+                                                                    <td id="TD_151">
+                                                                         <span id="SPAN_152">Bắc Ninh</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="TR_153">
+                                                                    <td id="TD_154">
+                                                                         <span id="SPAN_155">Lớp</span>
+                                                                    </td>
+                                                                    <td id="TD_156">
+                                                                         <span id="SPAN_157">19DTHJA2</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="TR_158">
+                                                                    <td id="TD_159">
+                                                                         <span id="SPAN_160">Ngành</span>
+                                                                    </td>
+                                                                    <td id="TD_161">
+                                                                         <span id="SPAN_162">Công nghệ thông tin - CT Việt-Nhật</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="TR_163">
+                                                                    <td id="TD_164">
+                                                                         <span id="SPAN_165">Khoa</span>
+                                                                    </td>
+                                                                    <td id="TD_166">
+                                                                         <span id="SPAN_167">Viện Công nghệ Việt Nhật</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="TR_168">
+                                                                    <td id="TD_169">
+                                                                         <span id="SPAN_170">Hệ đào tạo</span>
+                                                                    </td>
+                                                                    <td id="TD_171">
+                                                                         <span id="SPAN_172">Đại học chính quy Chương trình Việt - Nhật</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="TR_173">
+                                                                    <td id="TD_174">
+                                                                         <span id="SPAN_175">Khóa học</span>
+                                                                    </td>
+                                                                    <td id="TD_176">
+                                                                         <span id="SPAN_177">2019-2023</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="TR_178">
+                                                                    <td id="TD_179">
+                                                                         <span id="SPAN_180">Cố vấn học tập</span>
+                                                                    </td>
+                                                                    <td id="TD_181">
+                                                                        <span id="SPAN_182"></span>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div id="DIV_183">
+                                                    </div>
+                                                </div><br id="BR_185" /> <span id="SPAN_186">Lưu ý: Các học phần sinh viên vừa đăng ký online hiện đang có học phí bằng 0, hệ thống sẽ cập nhật học phí sau khi kết thúc đợt đăng ký môn học</span>
+                                        <div id="DIV_187">
+                                                     <span id="SPAN_188">Học kỳ 2 - Năm học 2022-2023</span><br id="BR_189" /><br id="BR_190" />
+                                                    <div id="DIV_191">
+                                                        <table id="TABLE_192">
+                                                            <tbody id="TBODY_193">
+                                                                <tr id="TR_194">
+                                                                    <th id="TH_195">
+                                                                        STT
+                                                                    </th>
+                                                                    <th id="TH_196">
+                                                                        Mã Môn Học
+                                                                    </th>
+                                                                    <th id="TH_197">
+                                                                        Tên Môn học
+                                                                    </th>
+                                                                    <th id="TH_198">
+                                                                        Mã nhóm
+                                                                    </th>
+                                                                    <th id="TH_199">
+                                                                        Tổ thực hành
+                                                                    </th>
+                                                                    <th id="TH_200">
+                                                                        Số TC
+                                                                    </th>
+                                                                    <th id="TH_201">
+                                                                        TCHP
+                                                                    </th>
+                                                                    <th id="TH_202">
+                                                                        Phí tài liệu
+                                                                    </th>
+                                                                    <th id="TH_203">
+                                                                        H
+                                                                    </th>
+                                                                    <th id="TH_204">
+                                                                        Học phí
+                                                                    </th>
+                                                                    <th id="TH_205">
+                                                                        Miễn giảm
+                                                                    </th>
+                                                                    <th id="TH_206">
+                                                                        Phải đóng
+                                                                    </th>
+                                                                    <th id="TH_207">
+                                                                        Ghi chú
+                                                                    </th>
+                                                                </tr>
+                                                                <tr id="TR_208">
+                                                                    <td id="TD_209">
+                                                                         <span id="SPAN_210">1</span>
+                                                                    </td>
+                                                                    <td id="TD_211">
+                                                                         <span id="SPAN_212">JCMP596</span>
+                                                                    </td>
+                                                                    <td id="TD_213">
+                                                                         <span id="SPAN_214">Thực tập tốt nghiệp ngành Công nghệ thông tin</span>
+                                                                    </td>
+                                                                    <td id="TD_215">
+                                                                         <span id="SPAN_216">02</span>
+                                                                    </td>
+                                                                    <td id="TD_217">
+                                                                        <span id="SPAN_218"></span>
+                                                                    </td>
+                                                                    <td id="TD_219">
+                                                                         <span id="SPAN_220">3</span>
+                                                                    </td>
+                                                                    <td id="TD_221">
+                                                                         <span id="SPAN_222">3</span>
+                                                                    </td>
+                                                                    <td id="TD_223">
+                                                                         <span id="SPAN_224">0</span>
+                                                                    </td>
+                                                                    <td id="TD_225">
+                                                                        <span id="SPAN_226"></span>
+                                                                    </td>
+                                                                    <td id="TD_227">
+                                                                         <span id="SPAN_228">3 675 000</span>
+                                                                    </td>
+                                                                    <td id="TD_229">
+                                                                         <span id="SPAN_230">0</span>
+                                                                    </td>
+                                                                    <td id="TD_231">
+                                                                         <span id="SPAN_232">3 675 000</span>
+                                                                    </td>
+                                                                    <td id="TD_233">
+                                                                        <span id="SPAN_234"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="TR_235">
+                                                                    <td id="TD_236">
+                                                                         <span id="SPAN_237">2</span>
+                                                                    </td>
+                                                                    <td id="TD_238">
+                                                                         <span id="SPAN_239">JPOS104</span>
+                                                                    </td>
+                                                                    <td id="TD_240">
+                                                                         <span id="SPAN_241">Triết học Mác - Lênin</span>
+                                                                    </td>
+                                                                    <td id="TD_242">
+                                                                         <span id="SPAN_243">02</span>
+                                                                    </td>
+                                                                    <td id="TD_244">
+                                                                        <span id="SPAN_245"></span>
+                                                                    </td>
+                                                                    <td id="TD_246">
+                                                                         <span id="SPAN_247">3</span>
+                                                                    </td>
+                                                                    <td id="TD_248">
+                                                                         <span id="SPAN_249">3</span>
+                                                                    </td>
+                                                                    <td id="TD_250">
+                                                                         <span id="SPAN_251">0</span>
+                                                                    </td>
+                                                                    <td id="TD_252">
+                                                                        <span id="SPAN_253"></span>
+                                                                    </td>
+                                                                    <td id="TD_254">
+                                                                         <span id="SPAN_255">3 675 000</span>
+                                                                    </td>
+                                                                    <td id="TD_256">
+                                                                         <span id="SPAN_257">0</span>
+                                                                    </td>
+                                                                    <td id="TD_258">
+                                                                         <span id="SPAN_259">3 675 000</span>
+                                                                    </td>
+                                                                    <td id="TD_260">
+                                                                        <span id="SPAN_261"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="TR_262">
+                                                                    <td id="TD_263">
+                                                                         <span id="SPAN_264">3</span>
+                                                                    </td>
+                                                                    <td id="TD_265">
+                                                                         <span id="SPAN_266">JJPC116</span>
+                                                                    </td>
+                                                                    <td id="TD_267">
+                                                                         <span id="SPAN_268">Nhật ngữ 6</span>
+                                                                    </td>
+                                                                    <td id="TD_269">
+                                                                         <span id="SPAN_270">01</span>
+                                                                    </td>
+                                                                    <td id="TD_271">
+                                                                        <span id="SPAN_272"></span>
+                                                                    </td>
+                                                                    <td id="TD_273">
+                                                                         <span id="SPAN_274">3</span>
+                                                                    </td>
+                                                                    <td id="TD_275">
+                                                                         <span id="SPAN_276">3.3</span>
+                                                                    </td>
+                                                                    <td id="TD_277">
+                                                                         <span id="SPAN_278">0</span>
+                                                                    </td>
+                                                                    <td id="TD_279">
+                                                                        <span id="SPAN_280"></span>
+                                                                    </td>
+                                                                    <td id="TD_281">
+                                                                         <span id="SPAN_282">3 675 000</span>
+                                                                    </td>
+                                                                    <td id="TD_283">
+                                                                         <span id="SPAN_284">0</span>
+                                                                    </td>
+                                                                    <td id="TD_285">
+                                                                         <span id="SPAN_286">3 675 000</span>
+                                                                    </td>
+                                                                    <td id="TD_287">
+                                                                        <span id="SPAN_288"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="TR_289">
+                                                                    <td id="TD_290">
+                                                                         <span id="SPAN_291">4</span>
+                                                                    </td>
+                                                                    <td id="TD_292">
+                                                                         <span id="SPAN_293">JCMP164</span>
+                                                                    </td>
+                                                                    <td id="TD_294">
+                                                                         <span id="SPAN_295">Kỹ thuật lập trình</span>
+                                                                    </td>
+                                                                    <td id="TD_296">
+                                                                         <span id="SPAN_297">04</span>
+                                                                    </td>
+                                                                    <td id="TD_298">
+                                                                        <span id="SPAN_299"></span>
+                                                                    </td>
+                                                                    <td id="TD_300">
+                                                                         <span id="SPAN_301">3</span>
+                                                                    </td>
+                                                                    <td id="TD_302">
+                                                                         <span id="SPAN_303">3</span>
+                                                                    </td>
+                                                                    <td id="TD_304">
+                                                                         <span id="SPAN_305">0</span>
+                                                                    </td>
+                                                                    <td id="TD_306">
+                                                                        <span id="SPAN_307"></span>
+                                                                    </td>
+                                                                    <td id="TD_308">
+                                                                         <span id="SPAN_309">3 675 000</span>
+                                                                    </td>
+                                                                    <td id="TD_310">
+                                                                         <span id="SPAN_311">0</span>
+                                                                    </td>
+                                                                    <td id="TD_312">
+                                                                         <span id="SPAN_313">3 675 000</span>
+                                                                    </td>
+                                                                    <td id="TD_314">
+                                                                        <span id="SPAN_315"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="TR_316">
+                                                                    <td id="TD_317">
+                                                                         <span id="SPAN_318">5</span>
+                                                                    </td>
+                                                                    <td id="TD_319">
+                                                                         <span id="SPAN_320">JLAW158</span>
+                                                                    </td>
+                                                                    <td id="TD_321">
+                                                                         <span id="SPAN_322">Luật và Khởi nghiệp</span>
+                                                                    </td>
+                                                                    <td id="TD_323">
+                                                                         <span id="SPAN_324">02</span>
+                                                                    </td>
+                                                                    <td id="TD_325">
+                                                                        <span id="SPAN_326"></span>
+                                                                    </td>
+                                                                    <td id="TD_327">
+                                                                         <span id="SPAN_328">3</span>
+                                                                    </td>
+                                                                    <td id="TD_329">
+                                                                         <span id="SPAN_330">3</span>
+                                                                    </td>
+                                                                    <td id="TD_331">
+                                                                         <span id="SPAN_332">0</span>
+                                                                    </td>
+                                                                    <td id="TD_333">
+                                                                        <span id="SPAN_334"></span>
+                                                                    </td>
+                                                                    <td id="TD_335">
+                                                                         <span id="SPAN_336">3 675 000</span>
+                                                                    </td>
+                                                                    <td id="TD_337">
+                                                                         <span id="SPAN_338">0</span>
+                                                                    </td>
+                                                                    <td id="TD_339">
+                                                                         <span id="SPAN_340">3 675 000</span>
+                                                                    </td>
+                                                                    <td id="TD_341">
+                                                                        <span id="SPAN_342"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="TR_343">
+                                                                    <td id="TD_344">
+                                                                         <span id="SPAN_345">6</span>
+                                                                    </td>
+                                                                    <td id="TD_346">
+                                                                         <span id="SPAN_347">JJPC112</span>
+                                                                    </td>
+                                                                    <td id="TD_348">
+                                                                         <span id="SPAN_349">Nhật ngữ 2</span>
+                                                                    </td>
+                                                                    <td id="TD_350">
+                                                                         <span id="SPAN_351">B01</span>
+                                                                    </td>
+                                                                    <td id="TD_352">
+                                                                        <span id="SPAN_353"></span>
+                                                                    </td>
+                                                                    <td id="TD_354">
+                                                                         <span id="SPAN_355">3</span>
+                                                                    </td>
+                                                                    <td id="TD_356">
+                                                                         <span id="SPAN_357">3.3</span>
+                                                                    </td>
+                                                                    <td id="TD_358">
+                                                                         <span id="SPAN_359">0</span>
+                                                                    </td>
+                                                                    <td id="TD_360">
+                                                                        <span id="SPAN_361"></span>
+                                                                    </td>
+                                                                    <td id="TD_362">
+                                                                         <span id="SPAN_363">3 675 000</span>
+                                                                    </td>
+                                                                    <td id="TD_364">
+                                                                         <span id="SPAN_365">0</span>
+                                                                    </td>
+                                                                    <td id="TD_366">
+                                                                         <span id="SPAN_367">3 675 000</span>
+                                                                    </td>
+                                                                    <td id="TD_368">
+                                                                        <span id="SPAN_369"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="TR_370">
+                                                                    <td id="TD_371">
+                                                                         <span id="SPAN_372">7</span>
+                                                                    </td>
+                                                                    <td id="TD_373">
+                                                                         <span id="SPAN_374">JCAP211</span>
+                                                                    </td>
+                                                                    <td id="TD_375">
+                                                                         <span id="SPAN_376">Nhập môn công nghệ thông tin</span>
+                                                                    </td>
+                                                                    <td id="TD_377">
+                                                                         <span id="SPAN_378">04</span>
+                                                                    </td>
+                                                                    <td id="TD_379">
+                                                                         <span id="SPAN_380">01</span>
+                                                                    </td>
+                                                                    <td id="TD_381">
+                                                                         <span id="SPAN_382">3</span>
+                                                                    </td>
+                                                                    <td id="TD_383">
+                                                                         <span id="SPAN_384">3.2</span>
+                                                                    </td>
+                                                                    <td id="TD_385">
+                                                                         <span id="SPAN_386">0</span>
+                                                                    </td>
+                                                                    <td id="TD_387">
+                                                                        <span id="SPAN_388"></span>
+                                                                    </td>
+                                                                    <td id="TD_389">
+                                                                         <span id="SPAN_390">3 675 000</span>
+                                                                    </td>
+                                                                    <td id="TD_391">
+                                                                         <span id="SPAN_392">0</span>
+                                                                    </td>
+                                                                    <td id="TD_393">
+                                                                         <span id="SPAN_394">3 675 000</span>
+                                                                    </td>
+                                                                    <td id="TD_395">
+                                                                        <span id="SPAN_396"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="TR_397">
+                                                                    <td id="TD_398">
+                                                                    </td>
+                                                                    <td id="TD_399">
+                                                                    </td>
+                                                                    <td id="TD_400">
+                                                                    </td>
+                                                                    <td id="TD_401">
+                                                                    </td>
+                                                                    <td id="TD_402">
+                                                                    </td>
+                                                                    <td id="TD_403">
+                                                                         <span id="SPAN_404">21</span>
+                                                                    </td>
+                                                                    <td id="TD_405">
+                                                                         <span id="SPAN_406">21.8</span>
+                                                                    </td>
+                                                                    <td id="TD_407">
+                                                                         <span id="SPAN_408">0</span>
+                                                                    </td>
+                                                                    <td id="TD_409">
+                                                                        <span id="SPAN_410"></span>
+                                                                    </td>
+                                                                    <td id="TD_411">
+                                                                         <span id="SPAN_412">3 675 000</span>
+                                                                    </td>
+                                                                    <td id="TD_413">
+                                                                         <span id="SPAN_414">0</span>
+                                                                    </td>
+                                                                    <td id="TD_415">
+                                                                         <span id="SPAN_416">3 675 000</span>
+                                                                    </td>
+                                                                    <td id="TD_417">
+                                                                        <span id="SPAN_418"></span>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div id="DIV_419">
+                                                        <table id="TABLE_420">
+                                                            <tbody id="TBODY_421">
+                                                                <tr id="TR_422">
+                                                                    <td id="TD_423">
+                                                                         <span id="SPAN_424">Tổng số tín chỉ:</span>
+                                                                    </td>
+                                                                    <td id="TD_425">
+                                                                         <span id="SPAN_426">21</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="TR_427">
+                                                                    <td id="TD_428">
+                                                                         <span id="SPAN_429">Tổng số tín chỉ học phí:</span>
+                                                                    </td>
+                                                                    <td id="TD_430">
+                                                                         <span id="SPAN_431">21.8</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="TR_432">
+                                                                    <td id="TD_433">
+                                                                         <span id="SPAN_434">Tổng số tiền học phí hoc kỳ là:</span>
+                                                                    </td>
+                                                                    <td id="TD_435">
+                                                                         <span id="SPAN_436">3 675 000</span> <span id="SPAN_437">VND</span><span id="SPAN_438"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="TR_439">
+                                                                    <td id="TD_440">
+                                                                         <span id="SPAN_441">Số tiền đóng tối thiểu lần đầu:</span>
+                                                                    </td>
+                                                                    <td id="TD_442">
+                                                                         <span id="SPAN_443">3 675 000</span> <span id="SPAN_444">VND</span><span id="SPAN_445"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="TR_446">
+                                                                    <td id="TD_447">
+                                                                         <span id="SPAN_448">Số tiền đã đóng trong học kỳ:</span>
+                                                                    </td>
+                                                                    <td id="TD_449">
+                                                                         <span id="SPAN_450">0</span> <span id="SPAN_451">VND</span><span id="SPAN_452"></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id="TR_453">
+                                                                    <td id="TD_454">
+                                                                         <span id="SPAN_455">Số tiền còn nợ:</span>
+                                                                    </td>
+                                                                    <td id="TD_456">
+                                                                         <span id="SPAN_457">3 675 000</span> <span id="SPAN_458">VND</span><span id="SPAN_459"></span>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div><span id="SPAN_460"></span><br id="BR_461" />
+                                                </div> <span id="SPAN_462">(Số tài khoản ngân hàng của sinh viên: 1)</span><br id="BR_463" /><br id="BR_464" />
+                                        <div id="DIV_465">
+                                                    <img src="http://daotao.hutech.edu.vn/App_Themes/Standard/Images/24.png" alt="" id="IMG_466" /> <a href="http://daotao.hutech.edu.vn/Report/Report_XemHocPhi.aspx" id="A_467">In Học Phí</a>
+                                                </div><br id="BR_468" /><br id="BR_469" /><br id="BR_470" />
+                                        <div id="DIV_471">
+                                                </div>
+                                        <div id="DIV_472">
+                                                </div>
+                                        <script id="SCRIPT_473">function help() {
+                var url = 'upload/huongdanthanhtoan.pdf';
+                if ('DHMX' === 'KTCN')
+                    url = 'HDDKMH.html#dong_tien';
+                window.open(url, '_Blank');
+                return false;
+            }
+                                                </script><br id="BR_474" /> <span id="SPAN_475">( Dữ liệu được cập nhật vào lúc: 8:11 Ngày: 14/12/2022)</span><br id="BR_476" />
+                                    </td>
+                                </tr>
+                    <tr id="TR_477">
+                                                <td id="TD_478">
+                                                    <style type="text/css" id="STYLE_479">.style3
+        {
+            width: 70px;
+        }
+        .style4
+        {
+            width: 129px;
+        }
+        .style5
+        {
+            width: 1019px;
+        }
+                                                    </style>
+                                                    <div id="DIV_480">
+                                                            <table id="TABLE_481">
+                                                                <tbody id="TBODY_482">
+                                                                    <tr id="TR_483">
+                                                                        <td id="TD_484">
+                                                                            <img src="http://daotao.hutech.edu.vn/App_Themes/Standard/Images/icon_11c.gif" alt="" id="IMG_485" /> <span id="SPAN_486"><span id="SPAN_487">Copyright ©2009 Trường Đại Học Công Nghệ TP.HCM. Quản lý bởi</span></span>
+                                                                        </td>
+                                                                        <td id="TD_488">
+                                                                            <img src="http://daotao.hutech.edu.vn/App_Themes/Standard/Images/iconHome.png" alt="" id="IMG_489" />
+                                                                        </td>
+                                                                        <td id="TD_490">
+                                                                             <a href="http://daotao.hutech.edu.vn/Default.aspx" id="A_491"><span id="SPAN_492">Trang Chủ</span></a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr id="TR_493">
+                                                                        <td id="TD_494">
+                                                                        </td>
+                                                                        <td id="TD_495">
+                                                                            <img src="http://daotao.hutech.edu.vn/App_Themes/Standard/Images/topTen.gif" width="15px" alt="" id="IMG_496" />
+                                                                        </td>
+                                                                        <td id="TD_497">
+                                                                             <a href="http://daotao.hutech.edu.vn/Default.aspx?page=xemhocphi#Top" title="Go to top" id="A_498"> <span id="SPAN_499">Đầu trang</span></a>
+                                                                        </td>
+                                                                        <td id="TD_500">
+                                                                            <a href="http://daotao.hutech.edu.vn/Default.aspx?page=thongtinsp" id="A_501"><span id="SPAN_502">About</span></a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                </td>
+                                            </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

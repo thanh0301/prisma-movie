@@ -1,0 +1,111 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Banner {
+  ma_banner Int     @id @default(autoincrement())
+  ma_phim   Int?
+  hinh_anh  String? @db.VarChar(100)
+  Phim      Phim?   @relation(fields: [ma_phim], references: [ma_phim], onDelete: NoAction, onUpdate: NoAction, map: "Banner_ibfk_1")
+
+  @@index([ma_phim], map: "ma_phim")
+}
+
+model CumRap {
+  ma_cup_rap      Int         @id @default(autoincrement())
+  ten_cum_rap     String?     @db.VarChar(20)
+  dia_chi         String?     @db.VarChar(100)
+  ma_he_thong_rap Int?
+  HeThongRap      HeThongRap? @relation(fields: [ma_he_thong_rap], references: [ma_he_thong_rap], onDelete: NoAction, onUpdate: NoAction, map: "CumRap_ibfk_1")
+  RapPhim         RapPhim[]
+
+  @@index([ma_he_thong_rap], map: "ma_he_thong_rap")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model DatVe {
+  tai_khoang    Int?
+  ma_lich_chieu Int?
+  ma_ghe        Int?
+  Ghe           Ghe?       @relation(fields: [ma_ghe], references: [ma_ghe], onDelete: NoAction, onUpdate: NoAction, map: "DatVe_ibfk_1")
+  NguoiDung     NguoiDung? @relation(fields: [tai_khoang], references: [tai_khoang], onDelete: NoAction, onUpdate: NoAction, map: "DatVe_ibfk_2")
+  LichChieu     LichChieu? @relation(fields: [ma_lich_chieu], references: [ma_lich_chieu], onDelete: NoAction, onUpdate: NoAction, map: "DatVe_ibfk_3")
+
+  @@index([ma_ghe], map: "ma_ghe")
+  @@index([ma_lich_chieu], map: "ma_lich_chieu")
+  @@index([tai_khoang], map: "tai_khoang")
+  @@ignore
+}
+
+model Ghe {
+  ma_ghe      Int      @id @default(autoincrement())
+  ten_ghe     String?  @db.VarChar(20)
+  loai_ghe    String?  @db.VarChar(20)
+  ma_rap_phim Int?
+  DatVe       DatVe[]  @ignore
+  RapPhim     RapPhim? @relation(fields: [ma_rap_phim], references: [ma_rap_phim], onDelete: NoAction, onUpdate: NoAction, map: "Ghe_ibfk_1")
+
+  @@index([ma_rap_phim], map: "ma_rap_phim")
+}
+
+model HeThongRap {
+  ma_he_thong_rap  Int      @id @default(autoincrement())
+  ten_he_thong_rap String?  @db.VarChar(20)
+  logo             String?  @db.VarChar(100)
+  CumRap           CumRap[]
+}
+
+model LichChieu {
+  ma_lich_chieu  Int       @id @default(autoincrement())
+  ma_rap_phim    Int?
+  ma_phim        Int?
+  ngay_gio_chieu DateTime? @db.DateTime(0)
+  gia_ve         Int?
+  DatVe          DatVe[]   @ignore
+  RapPhim        RapPhim?  @relation(fields: [ma_rap_phim], references: [ma_rap_phim], onDelete: NoAction, onUpdate: NoAction, map: "LichChieu_ibfk_1")
+  Phim           Phim?     @relation(fields: [ma_phim], references: [ma_phim], onDelete: NoAction, onUpdate: NoAction, map: "LichChieu_ibfk_2")
+
+  @@index([ma_phim], map: "ma_phim")
+  @@index([ma_rap_phim], map: "ma_rap_phim")
+}
+
+model NguoiDung {
+  tai_khoang      Int     @id @default(autoincrement())
+  ho_ten          String? @db.VarChar(20)
+  email           String? @db.VarChar(30)
+  so_dt           String? @db.VarChar(11)
+  mat_khau        String? @db.VarChar(20)
+  loai_nguoi_dung String? @db.VarChar(20)
+  DatVe           DatVe[] @ignore
+}
+
+model Phim {
+  ma_phim         Int         @id @default(autoincrement())
+  ten_phim        String?     @db.VarChar(50)
+  trailer         String?     @db.VarChar(100)
+  hinh_anh        String?     @db.VarChar(100)
+  mo_ta           String?     @db.VarChar(250)
+  ngay_khoi_chieu DateTime?   @db.Date
+  dang_gia        Int?
+  hot             Boolean?
+  dang_chieu      Boolean?
+  sap_chieu       Boolean?
+  Banner          Banner[]
+  LichChieu       LichChieu[]
+}
+
+model RapPhim {
+  ma_rap_phim Int         @id @default(autoincrement())
+  ten_rap     String?     @db.VarChar(20)
+  ma_cup_rap  Int?
+  Ghe         Ghe[]
+  LichChieu   LichChieu[]
+  CumRap      CumRap?     @relation(fields: [ma_cup_rap], references: [ma_cup_rap], onDelete: NoAction, onUpdate: NoAction, map: "RapPhim_ibfk_1")
+
+  @@index([ma_cup_rap], map: "ma_cup_rap")
+}
